@@ -109,17 +109,46 @@
   color: #ef4444; /* สีแดงเวลาเอาเมาส์ชี้ */
 }
 
-/* Responsive มือถือ */
+/* ...โค้ดส่วนบนคงเดิม... */
+
+/* --- Responsive มือถือ (แก้ไขใหม่) --- */
 @media (max-width: 768px) {
   .navbar {
-    padding: 15px 20px;
+    padding: 10px 15px; /* ลดขอบลงนิดนึง */
   }
   
-  /* ซ่อนเมนูลิงก์ในมือถือไปก่อน (แบบง่าย) */
   .nav-links {
+    display: flex; /* เปลี่ยนจาก none เป็น flex เพื่อให้ปุ่มกลับมา */
+    gap: 10px; /* ลดระยะห่างระหว่างปุ่ม */
+  }
+
+  /* ซ่อนเมนูตัวหนังสือ (หน้าแรก, บริการ) โดยนับลำดับเอา */
+  /* li ตัวที่ 1 (หน้าแรก) และ 2 (บริการ) จะถูกซ่อน */
+  .nav-links li:nth-child(1),
+  .nav-links li:nth-child(2) {
     display: none; 
   }
+
+  /* ปรับปุ่ม "จองคิว" ให้เล็กลง พอดีจอมือถือ */
+  .nav-btn-book {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* ปรับปุ่ม Login ให้ตัวเล็กลง */
+  .nav-login-link {
+    font-size: 0.85rem;
+    margin-right: 5px;
+  }
+
+  /* ถ้าล็อกอินแล้ว: ปรับกล่อง Profile ให้กะทัดรัด */
+  .nav-profile-section {
+    padding: 4px 8px;
+    margin-right: 5px;
+  }
   
-  /* หรือถ้าอยากให้โชว์แค่ปุ่มจอง */
-  /* คุณอาจต้องใช้ JavaScript ทำปุ่ม Hamburger Menu ในอนาคต */
+  /* ซ่อนชื่ออีเมลในมือถือ (โชว์แค่ไอคอนคน) เพื่อประหยัดที่ */
+  .user-info span {
+    display: none;
+  }
 }
